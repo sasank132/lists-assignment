@@ -46,3 +46,17 @@ def display_current_order(order):
     for code, name, qty, price in order:
         price = int(price)  # Ensure price is an integer
         print(f"{code+name} - ${price}")
+        
+def calculate_subtotal(order):
+    """Calculates the subtotal of the current order."""
+    subtotal = 0
+    j=0
+    for _, _, quantity, price in order:
+      price=int(price)
+      for k in data.menu_items:
+        i=k[len(k)-1]
+        i=int(i)
+        j+=i*price
+        break
+      subtotal += j * price
+    return subtotal
